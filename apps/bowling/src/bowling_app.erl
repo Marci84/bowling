@@ -52,7 +52,5 @@ calculate(N)->
 calculate(N,$/)->
     10;
 calculate(N,N2)->
-    First_value = calculate(N),   
-    Second_value = calculate(N2),
-    First_value + Second_value.
+    calculate(N) + calculate(N2).
 
