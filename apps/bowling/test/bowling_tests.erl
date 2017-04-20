@@ -22,7 +22,7 @@ bowling_scores_test()->
     ?assertEqual(270,Result8),
     Result9 = bowling_app:calc("9-9-9-9-9-9-9-9-9-9-"),
     ?assertEqual(90,Result9),
-    Result10 = bowling_app:calc("5/5/5/5/5/5/5/5/5/5/0"),
+    Result10 = bowling_app:calc("5/5/5/5/5/5/5/5/5/5/-"),
     ?assertEqual(145,Result10),
     Result11 = bowling_app:calc("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX--"),
     ?assertEqual(900,Result11),

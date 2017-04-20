@@ -32,7 +32,7 @@ calc(Score)->
 calc([],Result)->
     Result;
 calc([$X,N,N2|T],Result)->
-    calc([N,N2|T],Result + 10 + calculate([N,N2]));
+    calc([N,N2|T],Result + 10 + calculate(N,N2));
 calc([_,$/,N2|T],Result)->
     calc([N2|T],Result + 10 + calculate(N2));
 calc([N,N2|T],Result)->
@@ -40,26 +40,6 @@ calc([N,N2|T],Result)->
 calc([N],Result) ->
     Result + calculate(N).
 
-calculate([N,N2])->
-    First_value = case N of
-                      $X ->
-                          10;
-                      $- ->
-                          0;
-                      N ->
-                          list_to_integer([N])
-                  end,        
-    Second_value = case N2 of
-                       $X ->
-                           10;
-                       $/ ->
-                           10 - list_to_integer([N]);
-                       $- ->
-                           0;
-                       N2 ->
-                           list_to_integer([N2])
-                   end,    
-    First_value + Second_value;
 calculate(N)->                       
     case N of 
         $X ->
@@ -69,3 +49,10 @@ calculate(N)->
         N ->
             list_to_integer([N])
     end.
+calculate(N,$/)->
+    10;
+calculate(N,N2)->
+    First_value = calculate(N),   
+    Second_value = calculate(N2),
+    First_value + Second_value.
+
